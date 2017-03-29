@@ -1,0 +1,49 @@
+1. Crearlabasededatosmovies
+
+create database movies;
+\C
+
+2. Crearlatablamovieconlaclaveprimariaidyname
+create table movie (
+id serial,
+name varchar (255));
+
+3. IngresarlapelículaElReyLeón
+
+insert into movie (name) values ('El rey leon');
+
+4. IngresarlapelículaTerminatorII
+
+insert into movie (name) values ('TerminatorII');
+
+
+5. Alterarlatablapelículasparaagregarelaño
+
+Alter table movie add column year integer;
+
+6. Cambiarlosdatosdetodaslaspelículasexistentesa 1984
+
+update movie  set year=1984;
+
+7. BorrarlapelículaTerminatorII
+
+delete from movie where id=2;
+
+8. Crearunusuarionuevoenlabasededatos
+
+create user movieman;
+\q
+
+9. Asignarleunrolquesólopermitehacerconsultas select (no podrá ingresar)
+
+createdb movieman
+ psql -U movieman
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO movieman;
+GRANT SELECT ON movie TO only_select;
+GRANT only_select to movieman;
+\q
+psql -U movieman
+10. Cambiardeusuarioenlabasededatos
+\c movies
+11. Probarquenopuedeingresarunapelícula
+select * from movie

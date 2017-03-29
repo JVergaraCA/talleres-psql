@@ -1,0 +1,28 @@
+sorting :
+
+- Ingresar 5 películas más, con nombres y años distintos.
+insert into movie (name, year) values ('Red Social', 2010);
+insert into movie (name, year) values ('Celular', 2023);
+insert into movie (name, year) values ('Google', 2929);
+insert into movie (name, year) values ('Volar', 1987);
+insert into movie (name, year) values ('Correr', 1998);
+
+
+- devolver las primeras 3 películas (ordenadas alfabéticamente).
+  SELECT * FROM movie ORDER BY name limit 3;
+- devolver las últimas 3 películas (ordenadas por año).
+  SELECT * FROM movie ORDER BY year DESC limit 3;
+conteo :
+
+-contar la cantidad de peliculas en la base de datos.
+  select count (*) from movie;
+-contar la cantidad de peliculas por año.
+ select year, count(year) from movie group by year;
+-Alterar la tabla para agregar la categoria de la pelicula
+ alter table movie add column categoria varchar(64);
+-agregar categorias a todas las peliculas existentes.
+ UPDATE movie SET categoria= 'otro' where id=6 or id=1 or id=2;
+ UPDATE movie SET categoria= 'familiar' where id=3 or id= 4 or id=5;
+-obtener un listado de las categorias
+select categoria, count(categoria) from movie group by categoria;
+(sin repeticiones)

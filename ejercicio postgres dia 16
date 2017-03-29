@@ -1,0 +1,35 @@
+• Crear la tabla equipos y la tabla jugadores, y la tabla intermedia
+• (Primero realizar el dibujo)
+• En la tabla intermedia crear las claves foráneas
+JuanCarlos=# create database torneo;
+CREATE DATABASE
+JuanCarlos=# \c torneo
+psql (9.6.1, server 9.6.2)
+You are now connected to database "torneo" as user "JuanCarlos".
+torneo=# create table equipos(
+torneo(# id serial primary key,
+torneo(# name varchar(100));
+CREATE TABLE
+torneo=# create table jugadores(
+torneo(# id serial primary key,
+torneo(# name varchar (100));
+CREATE TABLE
+torneo=# create table equipos_jugadores(
+id_equipos integer references equipos (id),
+id_jugadores integer references jugadores (id));
+CREATE TABLE
+torneo=# \dt
+                List of relations
+ Schema |       Name        | Type  |   Owner    
+--------+-------------------+-------+------------
+ public | equipos           | table | JuanCarlos
+ public | equipos_jugadores | table | JuanCarlos
+ public | jugadores         | table | JuanCarlos
+(3 rows)
+
+
+
+• Ingresar 5 jugadores, 5 equipos y 7 relaciones (un jugador puede jugar en más de un equipo
+
+• Obtener
+• La cantidad de jugadores por equipo • Los equipos sin jugadores

@@ -1,0 +1,20 @@
+rails new modelos -d postgresql
+cd modelos
+rake db:create
+rails g model user name
+rails g model photo url
+rails g migration addUserToPhoto user:referencessubl .
+rake db:migrate
+rails c 
+User.create(name:"jose")
+p = User.find(3)
+Photo.create(url:"imagen")
+Photo.all
+v = Photo.find(1)
+v.user_id=p.id
+v.save
+Photo.all
+User.find(3).destroy
+ERROR
+
+
